@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* resources/css/app.css */
+:root {
+    --bs-body-bg: #f5f5f5;
+}
+
+[data-bs-theme="dark"] {
+    --bs-body-bg: #252525;
+    --bs-dark: #1a1a1a;
+    --bs-light: #333333;
+}
+
+body {
+    transition: background-color 0.3s ease;
+}
+
+.card {
+    transition: all 0.3s ease;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.calculator {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.calculator-buttons button {
+    height: 60px;
+    font-size: 1.2rem;
+    margin: 2px;
+}
+
+.calculator-display input {
+    font-size: 2rem;
+    height: 80px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+[data-bs-theme="dark"] ::-webkit-scrollbar-track {
+    background: #333;
+}
+
+[data-bs-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: #666;
+}
+
+[data-bs-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
+}
+
+.quantity-input {
+    width: 100%;
+}
