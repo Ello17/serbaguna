@@ -64,7 +64,7 @@
                             @enderror
                             @if($product->image)
                                 <div class="mt-2">
-                                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" style="max-height: 100px;">
+                                    <img src="{{ asset('storage/product_images/' . $product->image) }}" alt="{{ $product->name }}" style="max-height: 100px;">
                                     <div class="form-check mt-2">
                                         <input class="form-check-input" type="checkbox" id="remove_image" name="remove_image">
                                         <label class="form-check-label" for="remove_image">Hapus gambar</label>
