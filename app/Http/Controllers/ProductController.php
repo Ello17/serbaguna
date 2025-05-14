@@ -43,7 +43,10 @@ class ProductController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('product_images', 'public');
+            $gambar = $request->file('image');
+            $fileName = $gambar->getClientOriginalName();
+            $gambar->storeAs('product_images', $fileName);
+            $validated['image'] = $fileName;
         }
 
         $product = Product::create($validated);
