@@ -120,7 +120,15 @@ class ProductController extends Controller
     {
         $request->validate([
             'file' => 'required|mimes:xlsx,xls',
+            'gambar.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120',
         ]);
+
+        if ($request->hasFile('gambar')) {
+            foreach ($request->file('gambar') as $gambar) {
+                $fileName = $gambar->getClientOriginalName();
+                $gambar->storeAs('product_images', $fileName);
+            }
+        }
 
         Excel::import(new ProductsImport(), $request->file('file'));
 
