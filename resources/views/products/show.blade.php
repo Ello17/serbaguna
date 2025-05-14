@@ -18,7 +18,7 @@
                                 @else
                                     <div class="bg-light d-flex align-items-center justify-content-center"
                                         style="height: 200px;">
-                                        <span class="text-muted">No image</span>
+                                        <img src="{{ asset("img/No_Image-512.webp")}}" alt="" style="object-fit:contain">
                                     </div>
                                 @endif
                             </div>

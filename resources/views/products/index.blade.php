@@ -71,7 +71,8 @@
                                                 alt="{{ $product->name }}"
                                                 style="width: 50px; height: 50px; object-fit: cover;">
                                         @else
-                                            <span class="text-muted">No image</span>
+
+                                            <img src="{{ asset('img/No_Image-512.webp')}}" alt="" style="width: 50px; height: 50px; object-fit: cover; margin-left: 10px;">
                                         @endif
                                     </td>
                                     <td>{{ $product->name }}</td>

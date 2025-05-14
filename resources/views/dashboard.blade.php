@@ -113,10 +113,18 @@
                     @foreach ($products as $product)
                         <div class="col-md-4 mb-4">
                             <div class="card h-100">
-                                @if ($product->image)
+                                 @if ($product->image)
+                                            <img src="{{ asset('storage/product_images/' . $product->image) }}"
+                                                alt="{{ $product->name }}"
+                                                style="height: 200px; object-fit: cover;" class="card-img-top">
+                                        @else
+
+                                            <img src="{{ asset('img/No_Image-512.webp')}}" alt="" class="card-img-top" style="height: 200px; object-fit:contain; margin-left: 10px;">
+                                        @endif
+                                {{-- @if ($product->image)
                                     <img src="{{ asset('storage/product_images/' . $product->image) }}" class="card-img-top"
                                         alt="{{ $product->name }}" style="height: 200px; object-fit: cover;">
-                                @endif
+                                @endif --}}
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $product->name }}</h5>
                                     <p class="card-text">

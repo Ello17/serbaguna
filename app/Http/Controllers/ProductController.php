@@ -10,6 +10,7 @@ use App\Imports\ProductsImport;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB; // Tambahkan ini
 use Maatwebsite\Excel\Facades\Excel;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -81,7 +82,16 @@ class ProductController extends Controller
             'selling_price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'remove_bg' => 'nullable|boolean'
         ]);
+
+           // Handle remove image checkbox
+        if ($request->has('remove_image') && $request->remove_image) {
+            if ($product->image) {
+                Storage::disk('public')->delete('product_images/' . $product->image);
+                $validated['image'] = null;
+            }
+        }
 
         if ($request->hasFile('image')) {
             // Delete old image if exists
