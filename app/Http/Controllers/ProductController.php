@@ -85,7 +85,10 @@ class ProductController extends Controller
             if ($product->image) {
                 Storage::disk('public')->delete($product->image);
             }
-            $validated['image'] = $request->file('image')->store('product_images', 'public');
+            $gambar = $request->file('image');
+            $fileName = $gambar->getClientOriginalName();
+            $gambar->storeAs('product_images', $fileName);
+            $validated['image'] = $fileName;
         }
 
         $product->update($validated);
