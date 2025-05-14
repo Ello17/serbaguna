@@ -21,10 +21,10 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         User::create([
-            'name' => 'Administrator',
-            'username' => 'admin',
+            'name' => 'AdminSb',
+            'username' => 'adminsb',
             'email' => 'admin@ex.com',
-            'password' => bcrypt('admin123'),
+            'password' => bcrypt('adminsb'),
         ]);
     }
 }

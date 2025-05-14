@@ -155,7 +155,7 @@
             </div>
         </div>
 
-        
+
     <!-- Low Stock Products -->
     <div class="card mb-4">
         <div class="card-header bg-danger text-white">

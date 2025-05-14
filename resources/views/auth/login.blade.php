@@ -1,35 +1,39 @@
 @extends('layouts.auth')
 @section('title', 'Login')
+@push('css')
+<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+@endpush
 
 @section('content')
-    <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="card shadow-lg w-25">
-            <div class="card-header bg-primary text-white">
-                <h4 class="mb-0 text-center">Login - Serbaguna Produk</h4>
+    <div class="wrapper">
+        <div class="form-header">
+            <div class="titles">
+                <div class="title-login">Login</div>
             </div>
-            <div class="card-body">
-                <form method="POST" action="{{ route('login.post') }}">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Username</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                            name="username" required autofocus>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
-                            name="password" required>
-                    </div>
-                    @if (Session::has('error'))
+        </div>
+            <form method="POST" action="{{route('login.post')}}">
+                @csrf
+                <div class="input-box">
+                    <input type="text" class="input-field" id="name" name="username" required autofocus>
+                    <label for="name" class="label">Username</label>
+                    <i class='bx bx-user icon'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" id="password" name="password" required autofocus>
+                    <label for="password" class="label">Password</label>
+                    <i class='bx bxs-key icon'></i>
+                </div>
+
+                 @if (Session::has('error'))
                         <div class="mb-3">
                             <p class="text-danger text-center">{{ Session::get('error') }}</p>
                         </div>
                     @endif
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Login</button>
+                    <div class="input-box">
+                        <button type="submit" class="btn-sumbit">Login <i class='bx bx-log-in' ></i></button>
                     </div>
-                </form>
-            </div>
-        </div>
+            </form>
+
     </div>
+ 
 @endsection
