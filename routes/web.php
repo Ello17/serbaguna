@@ -7,21 +7,21 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\CalculatorController;
-use App\Http\Controllers\PurchaseController; 
+use App\Http\Controllers\PurchaseController;
 
 // Authentication Routes
-Route::get('/', [AuthController::class, 'login'])->name('login');
-Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
+Route::get('/', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Authenticated Routes
-Route::middleware(['auth.session'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     // Dashboard
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
     // Products
-    Route::resource('products', ProductController::class);
     Route::get('/products/export', [ProductController::class, 'export'])->name('products.export');
+    Route::resource('products', ProductController::class);
     Route::post('/products/import', [ProductController::class, 'import'])->name('products.import');
 
     // Finance

@@ -20,7 +20,7 @@ class ProductsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOn
             'name'        => $this->getValue($row, ['nama_produk', 'name']),
             'description' => $this->getValue($row, ['deskripsi', 'description']),
             'base_price'  => $this->convertToNumeric($this->getValue($row, ['harga_awal', 'base_price'])),
-            'selling_price'=> $this->convertToNumeric($this->getValue($row, ['harga_jual', 'selling_price'])),
+            'selling_price' => $this->convertToNumeric($this->getValue($row, ['harga_jual', 'selling_price'])),
             'stock'       => $this->convertToInteger($this->getValue($row, ['stok', 'stock'])),
             'image'       => $this->getValue($row, ['gambar', 'image']) ?: null,
         ]);
